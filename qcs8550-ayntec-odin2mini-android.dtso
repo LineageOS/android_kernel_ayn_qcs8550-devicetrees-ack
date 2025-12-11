@@ -1,0 +1,4 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-FileCopyrightText: The LineageOS Project
+
+#include "qcs8550-ayntec-odin2mini.dtso"
