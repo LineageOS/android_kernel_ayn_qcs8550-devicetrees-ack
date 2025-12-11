@@ -1,0 +1,92 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+load("@rules_devicetree//devicetree:dtb.bzl", "dtb")
+load("@rules_devicetree//devicetree:dtb_composite.bzl", "dtb_composite")
+load("@rules_devicetree//devicetree:dtbo.bzl", "dtbo")
+
+package(default_visibility = ["//vendor/ayn/qcs8550:__pkg__"])
+
+dtb(
+    name = "qcs8550-ayn-common.dtb",
+    srcs = [
+        "qcs8550-ayn-common.dtsi",
+        "qcs8550-ayn-common.dts",
+    ],
+    generate_symbols = True,
+    deps = ["//vendor/ayn/kernel:all_qcom_dtsi"],
+)
+
+filegroup(
+    name = "dtbs",
+    srcs = [
+        "qcs8550-ayn-common.dtb",
+    ],
+)
+
+dtbo(
+    name = "qcs8550-ayn-odin2.dtbo",
+    srcs = ["qcs8550-ayn-odin2.dtso"],
+    deps = ["//vendor/ayn/kernel:dtc_includes_aarch64"],
+)
+
+dtbo(
+    name = "qcs8550-ayn-odin2mini.dtbo",
+    srcs = ["qcs8550-ayn-odin2mini.dtso"],
+    deps = ["//vendor/ayn/kernel:dtc_includes_aarch64"],
+)
+
+dtbo(
+    name = "qcs8550-ayn-odin2portal.dtbo",
+    srcs = ["qcs8550-ayn-odin2portal.dtso"],
+    deps = ["//vendor/ayn/kernel:dtc_includes_aarch64"],
+)
+
+dtbo(
+    name = "qcs8550-ayn-thor.dtbo",
+    srcs = ["qcs8550-ayn-thor.dtso"],
+    deps = ["//vendor/ayn/kernel:dtc_includes_aarch64"],
+)
+
+filegroup(
+    name = "dtbos",
+    srcs = [
+        "qcs8550-ayn-odin2.dtbo",
+        "qcs8550-ayn-odin2mini.dtbo",
+        "qcs8550-ayn-odin2portal.dtbo",
+        "qcs8550-ayn-thor.dtbo",
+    ],
+)
+
+dtb_composite(
+    name = "qcs8550-ayn-odin2.dtb",
+    base = "qcs8550-ayn-common.dtb",
+    overlays = ["qcs8550-ayn-odin2.dtbo"],
+)
+
+dtb_composite(
+    name = "qcs8550-ayn-odin2mini.dtb",
+    base = "qcs8550-ayn-common.dtb",
+    overlays = ["qcs8550-ayn-odin2mini.dtbo"],
+)
+
+dtb_composite(
+    name = "qcs8550-ayn-odin2portal.dtb",
+    base = "qcs8550-ayn-common.dtb",
+    overlays = ["qcs8550-ayn-odin2portal.dtbo"],
+)
+
+dtb_composite(
+    name = "qcs8550-ayn-thor.dtb",
+    base = "qcs8550-ayn-common.dtb",
+    overlays = ["qcs8550-ayn-thor.dtbo"],
+)
+
+filegroup(
+    name = "dtbo_verifications",
+    srcs = [
+        "qcs8550-ayn-odin2.dtb",
+        "qcs8550-ayn-odin2mini.dtb",
+        "qcs8550-ayn-odin2portal.dtb",
+        "qcs8550-ayn-thor.dtb",
+    ],
+)
