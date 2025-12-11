@@ -1,0 +1,103 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+load("@rules_devicetree//devicetree:dtb.bzl", "dtb")
+load("@rules_devicetree//devicetree:dtb_composite.bzl", "dtb_composite")
+load("@rules_devicetree//devicetree:dtbo.bzl", "dtbo")
+
+package(default_visibility = ["//vendor/ayn/qcs8550:__pkg__"])
+
+dtb(
+    name = "qcs8550-ayntec-common.dtb",
+    srcs = ["qcs8550-ayntec-common-android.dts"],
+    generate_symbols = True,
+    deps = ["//vendor/ayn/kernel:all_qcom_dts"],
+)
+
+filegroup(
+    name = "dtbs",
+    srcs = [
+        "qcs8550-ayntec-common.dtb",
+    ],
+)
+
+dtbo(
+    name = "qcs8550-ayntec-odin2.dtbo",
+    srcs = ["qcs8550-ayntec-odin2-android.dtso"],
+    deps = ["//vendor/ayn/kernel:all_qcom_dts"],
+)
+
+dtbo(
+    name = "qcs8550-ayntec-odin2mini.dtbo",
+    srcs = ["qcs8550-ayntec-odin2mini-android.dtso"],
+    deps = ["//vendor/ayn/kernel:all_qcom_dts"],
+)
+
+dtbo(
+    name = "qcs8550-ayntec-odin2portal.dtbo",
+    srcs = ["qcs8550-ayntec-odin2portal-android.dtso"],
+    deps = ["//vendor/ayn/kernel:all_qcom_dts"],
+)
+
+dtbo(
+    name = "qcs8550-ayntec-thor.dtbo",
+    srcs = ["qcs8550-ayntec-thor-android.dtso"],
+    deps = ["//vendor/ayn/kernel:all_qcom_dts"],
+)
+
+dtbo(
+    name = "qcs8550-retroidpocket-rp6.dtbo",
+    srcs = ["qcs8550-retroidpocket-rp6-android.dtso"],
+    deps = ["//vendor/ayn/kernel:all_qcom_dts"],
+)
+
+filegroup(
+    name = "dtbos",
+    srcs = [
+        "qcs8550-ayntec-odin2.dtbo",
+        "qcs8550-ayntec-odin2mini.dtbo",
+        "qcs8550-ayntec-odin2portal.dtbo",
+        "qcs8550-ayntec-thor.dtbo",
+        "qcs8550-retroidpocket-rp6.dtbo",
+    ],
+)
+
+dtb_composite(
+    name = "qcs8550-ayntec-odin2.dtb",
+    base = "qcs8550-ayntec-common.dtb",
+    overlays = ["qcs8550-ayntec-odin2.dtbo"],
+)
+
+dtb_composite(
+    name = "qcs8550-ayntec-odin2mini.dtb",
+    base = "qcs8550-ayntec-common.dtb",
+    overlays = ["qcs8550-ayntec-odin2mini.dtbo"],
+)
+
+dtb_composite(
+    name = "qcs8550-ayntec-odin2portal.dtb",
+    base = "qcs8550-ayntec-common.dtb",
+    overlays = ["qcs8550-ayntec-odin2portal.dtbo"],
+)
+
+dtb_composite(
+    name = "qcs8550-ayntec-thor.dtb",
+    base = "qcs8550-ayntec-common.dtb",
+    overlays = ["qcs8550-ayntec-thor.dtbo"],
+)
+
+dtb_composite(
+    name = "qcs8550-retroidpocket-rp6.dtb",
+    base = "qcs8550-ayntec-common.dtb",
+    overlays = ["qcs8550-retroidpocket-rp6.dtbo"],
+)
+
+filegroup(
+    name = "dtbo_verifications",
+    srcs = [
+        "qcs8550-ayntec-odin2.dtb",
+        "qcs8550-ayntec-odin2mini.dtb",
+        "qcs8550-ayntec-odin2portal.dtb",
+        "qcs8550-ayntec-thor.dtb",
+        "qcs8550-retroidpocket-rp6.dtb",
+    ],
+)
