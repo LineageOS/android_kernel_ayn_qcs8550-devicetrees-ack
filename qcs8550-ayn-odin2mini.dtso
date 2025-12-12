@@ -3,15 +3,21 @@
  * Copyright (c) 2025, Teguh Sobirin.
  */
 
-/dts-v1/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
 
-#include "qcs8550-ayn-common.dtsi"
+/dts-v1/;
+/plugin/;
 
 / {
-	model = "AYN Odin 2 Mini";
-	compatible = "ayn,odin2mini", "qcom,qcs8550", "qcom,sm8550";
+	overlay-name = "AYN Odin 2 Mini Overlay";
 	qcom,msm-id = <603 0x20000>;
 	qcom,board-id = <0x1001f 0>;
+};
+
+&{/} {
+	model = "AYN Odin 2 Mini";
+	compatible = "ayn,odin2mini", "qcom,qcs8550", "qcom,sm8550";
 
 	hdmi-out {
 		compatible = "hdmi-connector";
@@ -90,6 +96,9 @@
 };
 
 &i2c0 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	backlight: backlight@46 {
 		compatible = "ayn,odin2miniled";
 		reg = <0x46>;
@@ -100,6 +109,9 @@
 };
 
 &i2c4 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	touchscreen@1a {
 		compatible = "hynitron,cst340";
 		reg = <0x1a>;
@@ -123,6 +135,9 @@
 &i2c_hub_0 {
 	clock-frequency = <100000>;
 	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	lt8912_codec: hdmi-bridge@48 {
 		compatible = "lontium,lt8912b";

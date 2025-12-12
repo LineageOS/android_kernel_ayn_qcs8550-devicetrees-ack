@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: BSD-3-Clause
+// SPDX-FileCopyrightText: The LineageOS Project
+
+/dts-v1/;
+
+#include "qcs8550-ayn-common.dtsi"
+
+/ {
+	model = "AYN QCS8550 Common";
+	compatible = "qcom,qcs8550", "qcom,sm8550";
+	qcom,msm-id = <603 0x20000>;
+	qcom,board-id = <0x1001f 0>;
+};

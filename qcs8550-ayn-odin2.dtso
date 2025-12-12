@@ -3,15 +3,22 @@
  * Copyright (c) 2025, Teguh Sobirin.
  */
 
-/dts-v1/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/leds/common.h>
 
-#include "qcs8550-ayn-common.dtsi"
+/dts-v1/;
+/plugin/;
 
 / {
-	model = "AYN Odin 2";
-	compatible = "ayn,odin2", "qcom,qcs8550", "qcom,sm8550";
+	overlay-name = "AYN Odin 2 Overlay";
 	qcom,msm-id = <603 0x20000>;
 	qcom,board-id = <0x1001f 0>;
+};
+
+&{/} {
+	model = "AYN Odin 2";
+	compatible = "ayn,odin2", "qcom,qcs8550", "qcom,sm8550";
 
 	backlight: backlight {
 		compatible = "pwm-backlight";
@@ -191,6 +198,9 @@
 };
 
 &i2c0 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	pwm_rgb_left: sn3112@54 {
 		compatible = "si-en,sn3112-pwm";
 		reg = <0x54>;
@@ -201,6 +211,9 @@
 };
 
 &i2c4 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	touchscreen@20 {
 		compatible = "syna,rmi4-i2c";
 		reg = <0x20>;
@@ -237,6 +250,9 @@
 };
 
 &i2c12 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	pwm_rgb_right: sn3112@54 {
 		compatible = "si-en,sn3112-pwm";
 		reg = <0x54>;
@@ -249,6 +265,9 @@
 &i2c_hub_0 {
 	clock-frequency = <100000>;
 	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	lt8912_codec: hdmi-bridge@48 {
 		compatible = "lontium,lt8912b";

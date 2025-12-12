@@ -3,15 +3,23 @@
  * Copyright (c) 2025, Teguh Sobirin.
  */
 
-/dts-v1/;
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/leds/common.h>
 
-#include "qcs8550-ayn-common.dtsi"
+/dts-v1/;
+/plugin/;
 
 / {
-	model = "AYN Thor";
-	compatible = "ayn,thor", "qcom,qcs8550", "qcom,sm8550";
+	overlay-name = "AYN Thor Overlay";
 	qcom,msm-id = <603 0x20000>;
 	qcom,board-id = <0x1001f 0>;
+};
+
+&{/} {
+	model = "AYN Thor";
+	compatible = "ayn,thor", "qcom,qcs8550", "qcom,sm8550";
 
 	gpio-keys {
 		compatible = "gpio-keys";
@@ -122,6 +130,9 @@
 };
 
 &i2c0 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	htr3212l: led-controller@3c {
 		compatible = "heroic,htr3212";
 		reg = <0x3c>;
@@ -194,6 +205,9 @@
 };
 
 &i2c4 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	touchscreen@38 {
 		compatible = "focaltech,ft5426";
 		reg = <0x38>;
@@ -218,6 +232,9 @@
 };
 
 &i2c12 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	htr3212r: led-controller@3c {
 		compatible = "heroic,htr3212";
 		reg = <0x3c>;
@@ -293,6 +310,9 @@
 	clock-frequency = <100000>;
 	status = "okay";
 
+	#address-cells = <1>;
+	#size-cells = <0>;
+
 	touchscreen@38 {
 		compatible = "focaltech,ft5452";
 		reg = <0x38>;
@@ -319,6 +339,9 @@
 &mdss_dsi0 {
 	vdda-supply = <&vreg_l3e_1p2>;
 	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
 
 	panel@0 {
 		reg = <0>;
