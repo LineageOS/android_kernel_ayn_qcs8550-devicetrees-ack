@@ -7,3 +7,7 @@
 	qcom,msm-id = <603 0x20000>;
 	qcom,board-id = <0x1001f 0>;
 };
+
+&android_firmware {
+	hardware = "rp6";
+};
