@@ -43,6 +43,10 @@
 	};
 };
 
+&android_firmware {
+	hardware = "odin2portal";
+};
+
 &display_panel {
 	compatible = "chipone,icna3512";
 

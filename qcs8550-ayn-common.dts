@@ -10,4 +10,17 @@
 	compatible = "qcom,qcs8550", "qcom,sm8550";
 	qcom,msm-id = <603 0x20000>;
 	qcom,board-id = <0x1001f 0>;
+
+	firmware {
+		android_firmware: android {
+			compatible = "android,firmware";
+			boot_devices = "soc@0/1d84000.ufshc";
+			usbcontroller = "a600000.usb";
+
+			vbmeta {
+				compatible = "android,vbmeta";
+				parts = "vbmeta,boot,system,vendor,recovery";
+			};
+		};
+	};
 };

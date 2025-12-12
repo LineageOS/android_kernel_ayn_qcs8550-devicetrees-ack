@@ -111,6 +111,10 @@
 	};
 };
 
+&android_firmware {
+	hardware = "thor";
+};
+
 &display_panel {
 	compatible = "chipone,icna3520";
 

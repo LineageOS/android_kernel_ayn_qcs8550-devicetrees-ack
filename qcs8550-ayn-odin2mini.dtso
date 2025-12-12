@@ -77,6 +77,10 @@
 	};
 };
 
+&android_firmware {
+	hardware = "odin2mini";
+};
+
 &display_panel {
 	compatible = "boe,xm91080g";
 

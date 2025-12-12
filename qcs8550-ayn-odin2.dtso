@@ -180,6 +180,10 @@
 	};
 };
 
+&android_firmware {
+	hardware = "odin2";
+};
+
 &display_panel {
 	compatible = "syna,td4328";
 
