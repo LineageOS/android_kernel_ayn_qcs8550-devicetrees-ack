@@ -99,6 +99,8 @@
 
 		fan-supply = <&vdd_fan_5v0>;
 		pwms = <&pm8550_pwm 3 100000>;
+		cooling-levels = <0 40 65 75 90 100 120 150 175>;
+		#cooling-cells = <2>;
 
 		pinctrl-names = "default";
 		pinctrl-0 = <&fan_pwm_active>;
@@ -264,6 +266,384 @@
 
 			codec {
 				sound-dai = <&mdss_dp0>;
+			};
+		};
+	};
+
+	thermal-zones {
+		cpu0-thermal {
+			trips {
+				cpuss0_active0: cpu-active0 {
+					temperature = <50000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss0_active1: cpu-active1 {
+					temperature = <55000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss0_active2: cpu-active2 {
+					temperature = <60000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss0_active3: cpu-active3 {
+					temperature = <65000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss0_active4: cpu-active4 {
+					temperature = <70000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss0_active5: cpu-active5 {
+					temperature = <75000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss0_active6: cpu-active6 {
+					temperature = <80000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss0_active7: cpu-active7 {
+					temperature = <85000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+			};
+
+			cooling-maps {
+				map0 {
+					cooling-device = <&pwm_fan 0 1>;
+					trip = <&cpuss0_active0>;
+				};
+
+				map1 {
+					cooling-device = <&pwm_fan 1 2>;
+					trip = <&cpuss0_active1>;
+				};
+
+				map2 {
+					cooling-device = <&pwm_fan 2 3>;
+					trip = <&cpuss0_active2>;
+				};
+
+				map3 {
+					cooling-device = <&pwm_fan 3 4>;
+					trip = <&cpuss0_active3>;
+				};
+
+				map4 {
+					cooling-device = <&pwm_fan 4 5>;
+					trip = <&cpuss0_active4>;
+				};
+
+				map5 {
+					cooling-device = <&pwm_fan 5 6>;
+					trip = <&cpuss0_active5>;
+				};
+
+				map6 {
+					cooling-device = <&pwm_fan 6 7>;
+					trip = <&cpuss0_active6>;
+				};
+
+				map7 {
+					cooling-device = <&pwm_fan 7 8>;
+					trip = <&cpuss0_active7>;
+				};
+			};
+		};
+
+		cpu3-bottom-thermal {
+			trips {
+				cpuss3_active0: cpu-active0 {
+					temperature = <50000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss3_active1: cpu-active1 {
+					temperature = <55000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss3_active2: cpu-active2 {
+					temperature = <60000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss3_active3: cpu-active3 {
+					temperature = <65000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss3_active4: cpu-active4 {
+					temperature = <70000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss3_active5: cpu-active5 {
+					temperature = <75000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss3_active6: cpu-active6 {
+					temperature = <80000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss3_active7: cpu-active7 {
+					temperature = <85000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+			};
+
+			cooling-maps {
+				map0 {
+					cooling-device = <&pwm_fan 0 1>;
+					trip = <&cpuss3_active0>;
+				};
+
+				map1 {
+					cooling-device = <&pwm_fan 1 2>;
+					trip = <&cpuss3_active1>;
+				};
+
+				map2 {
+					cooling-device = <&pwm_fan 2 3>;
+					trip = <&cpuss3_active2>;
+				};
+
+				map3 {
+					cooling-device = <&pwm_fan 3 4>;
+					trip = <&cpuss3_active3>;
+				};
+
+				map4 {
+					cooling-device = <&pwm_fan 4 5>;
+					trip = <&cpuss3_active4>;
+				};
+
+				map5 {
+					cooling-device = <&pwm_fan 5 6>;
+					trip = <&cpuss3_active5>;
+				};
+
+				map6 {
+					cooling-device = <&pwm_fan 6 7>;
+					trip = <&cpuss3_active6>;
+				};
+
+				map7 {
+					cooling-device = <&pwm_fan 7 8>;
+					trip = <&cpuss3_active7>;
+				};
+			};
+		};
+
+		cpu7-bottom-thermal {
+			trips {
+				cpuss7_active0: cpu-active0 {
+					temperature = <50000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss7_active1: cpu-active1 {
+					temperature = <55000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss7_active2: cpu-active2 {
+					temperature = <60000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss7_active3: cpu-active3 {
+					temperature = <65000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss7_active4: cpu-active4 {
+					temperature = <70000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss7_active5: cpu-active5 {
+					temperature = <75000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss7_active6: cpu-active6 {
+					temperature = <80000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				cpuss7_active7: cpu-active7 {
+					temperature = <85000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+			};
+
+			cooling-maps {
+				map0 {
+					cooling-device = <&pwm_fan 0 1>;
+					trip = <&cpuss7_active0>;
+				};
+
+				map1 {
+					cooling-device = <&pwm_fan 1 2>;
+					trip = <&cpuss7_active1>;
+				};
+
+				map2 {
+					cooling-device = <&pwm_fan 2 3>;
+					trip = <&cpuss7_active2>;
+				};
+
+				map3 {
+					cooling-device = <&pwm_fan 3 4>;
+					trip = <&cpuss7_active3>;
+				};
+
+				map4 {
+					cooling-device = <&pwm_fan 4 5>;
+					trip = <&cpuss7_active4>;
+				};
+
+				map5 {
+					cooling-device = <&pwm_fan 5 6>;
+					trip = <&cpuss7_active5>;
+				};
+
+				map6 {
+					cooling-device = <&pwm_fan 6 7>;
+					trip = <&cpuss7_active6>;
+				};
+
+				map7 {
+					cooling-device = <&pwm_fan 7 8>;
+					trip = <&cpuss7_active7>;
+				};
+			};
+		};
+
+		gpuss-0-thermal {
+			trips {
+				gpuss0_active0: gpu-active0 {
+					temperature = <50000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				gpuss0_active1: gpu-active1 {
+					temperature = <55000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				gpuss0_active2: gpu-active2 {
+					temperature = <60000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				gpuss0_active3: gpu-active3 {
+					temperature = <65000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				gpuss0_active4: gpu-active4 {
+					temperature = <70000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				gpuss0_active5: gpu-active5 {
+					temperature = <75000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				gpuss0_active6: gpu-active6 {
+					temperature = <80000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+
+				gpuss0_active7: gpu-active7 {
+					temperature = <85000>;
+					hysteresis = <4000>;
+					type = "active";
+				};
+			};
+
+			cooling-maps {
+				map0 {
+					cooling-device = <&pwm_fan 0 1>;
+					trip = <&gpuss0_active0>;
+				};
+
+				map1 {
+					cooling-device = <&pwm_fan 1 2>;
+					trip = <&gpuss0_active1>;
+				};
+
+				map2 {
+					cooling-device = <&pwm_fan 2 3>;
+					trip = <&gpuss0_active2>;
+				};
+
+				map3 {
+					cooling-device = <&pwm_fan 3 4>;
+					trip = <&gpuss0_active3>;
+				};
+
+				map4 {
+					cooling-device = <&pwm_fan 4 5>;
+					trip = <&gpuss0_active4>;
+				};
+
+				map5 {
+					cooling-device = <&pwm_fan 5 6>;
+					trip = <&gpuss0_active5>;
+				};
+
+				map6 {
+					cooling-device = <&pwm_fan 6 7>;
+					trip = <&gpuss0_active6>;
+				};
+
+				map7 {
+					cooling-device = <&pwm_fan 7 8>;
+					trip = <&gpuss0_active7>;
+				};
 			};
 		};
 	};
