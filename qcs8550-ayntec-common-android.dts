@@ -19,4 +19,10 @@
 			};
 		};
 	};
+
+	bootloader_log {
+		compatible = "qcom,bootloader_log";
+		memory-region = <&aop_config_merged_mem>;
+		log,offset_size = <0x64000 0x10000>;
+	};
 };
