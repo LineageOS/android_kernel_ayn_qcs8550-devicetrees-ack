@@ -257,7 +257,7 @@
 			};
 		};
 
-		dp0-dai-link {
+		/*dp0-dai-link {
 			link-name = "DP0 Playback";
 			cpu {
 				sound-dai = <&q6apmbedai DISPLAY_PORT_RX_0>;
@@ -270,7 +270,7 @@
 			codec {
 				sound-dai = <&mdss_dp0>;
 			};
-		};
+		};*/
 	};
 
 	thermal-zones {
