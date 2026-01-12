@@ -194,14 +194,13 @@
 
 	sound {
 		compatible = "qcom,sm8550-sndcard", "qcom,sm8450-sndcard";
-		pinctrl-0 = <&lpi_i2s3_active>;
+		pinctrl-0 = <&i2s0_default_state>, <&audio_mclk0_default_state>, <&lpi_i2s3_active>;
 		pinctrl-names = "default";
 
-		clocks = <&q6prmcc LPASS_CLK_ID_SEN_MI2S_IBIT LPASS_CLK_ATTRIBUTE_COUPLE_NO>;
-		clock-names = "i2s_clk";
-
-		assigned-clocks = <&q6prmcc LPASS_CLK_ID_SEN_MI2S_IBIT LPASS_CLK_ATTRIBUTE_COUPLE_NO>;
-		assigned-clock-rates = <1536000>;
+		clocks = <&q6prmcc LPASS_CLK_ID_PRI_MI2S_IBIT LPASS_CLK_ATTRIBUTE_COUPLE_NO>,
+			 <&q6prmcc LPASS_CLK_ID_MCLK_1 LPASS_CLK_ATTRIBUTE_COUPLE_NO>;
+		clock-names = "primary-mi2s",
+			      "primary-mclk";
 
 		model = "AYN-Odin2";
 		audio-routing = 
