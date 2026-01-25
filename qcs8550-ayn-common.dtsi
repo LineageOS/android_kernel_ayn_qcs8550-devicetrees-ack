@@ -103,7 +103,11 @@
 		#cooling-cells = <2>;
 
 		pinctrl-names = "default";
-		pinctrl-0 = <&fan_pwm_active>;
+		pinctrl-0 = <&fan_pwm_active>, <&fan_int>;
+
+		pulses-per-revolution = <4>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
 	};
 
 	reserved-memory {
@@ -1626,6 +1630,13 @@
 			function = "gpio";
 			bias-pull-down;
 		};
+	};
+
+	fan_int: fan-int-state {
+		pins = "gpio13";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-disable;
 	};
 
 	fan_pwr_active: fan-pwr-active-state {
