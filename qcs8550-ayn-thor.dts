@@ -313,8 +313,6 @@
 
 		touchscreen-size-x = <1080>;
 		touchscreen-size-y = <1240>;
-
-		no-regmap-bulk-read;
 	};
 };
 
