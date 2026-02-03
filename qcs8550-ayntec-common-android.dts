@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: BSD-3-Clause
 // SPDX-FileCopyrightText: The LineageOS Project
 
+#define scm qcom_scm
+
 #include "qcs8550-ayntec-common.dts"
 
 / {
