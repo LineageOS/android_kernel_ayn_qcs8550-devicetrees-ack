@@ -2,3 +2,8 @@
 // SPDX-FileCopyrightText: The LineageOS Project
 
 #include "qcs8550-retroidpocket-rp6.dtso"
+
+/ {
+	qcom,msm-id = <603 0x20000>;
+	qcom,board-id = <0x1001f 0>;
+};
