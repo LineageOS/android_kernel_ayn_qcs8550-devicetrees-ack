@@ -27,4 +27,55 @@
 		memory-region = <&aop_config_merged_mem>;
 		log,offset_size = <0x64000 0x10000>;
 	};
+
+	sound {
+		pinctrl-0 = <&i2s0_default_state>, <&audio_mclk0_default_state>, <&lpi_i2s3_active>;
+
+		clocks = <&q6prmcc LPASS_CLK_ID_PRI_MI2S_IBIT LPASS_CLK_ATTRIBUTE_COUPLE_NO>,
+			 <&q6prmcc LPASS_CLK_ID_MCLK_1 LPASS_CLK_ATTRIBUTE_COUPLE_NO>;
+		clock-names = "primary-mi2s",
+			      "primary-mclk";
+	};
+};
+
+&tlmm {
+	audio_mclk0_default_state: audio-mclk0-default-state {
+		pins = "gpio125";
+		function = "audio_ext_mclk0";
+		drive-strength = <8>;
+		bias-disable;
+		output-high;
+	};
+
+	i2s0_default_state: i2s0-default-state {
+		sck-pins {
+			pins = "gpio126";
+			function = "i2s0_sck";
+			drive-strength = <8>;
+			bias-disable;
+			output-high;
+		};
+
+		data0-pins {
+			pins = "gpio127";
+			function = "i2s0_data0";
+			drive-strength = <8>;
+			bias-disable;
+		};
+
+		data1-pins {
+			pins = "gpio128";
+			function = "i2s0_data1";
+			drive-strength = <8>;
+			bias-disable;
+		};
+
+		ws-pins {
+			pins = "gpio129";
+			function = "i2s0_ws";
+			drive-strength = <8>;
+			bias-disable;
+			output-high;
+		};
+	};
 };
