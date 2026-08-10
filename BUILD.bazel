@@ -45,6 +45,12 @@ dtbo(
 )
 
 dtbo(
+    name = "qcs8550-retroidpocket-nova.dtbo",
+    srcs = ["qcs8550-retroidpocket-nova-android.dtso"],
+    deps = ["//vendor/ayn/kernel:all_qcom_dts"],
+)
+
+dtbo(
     name = "qcs8550-retroidpocket-rp6.dtbo",
     srcs = ["qcs8550-retroidpocket-rp6-android.dtso"],
     deps = ["//vendor/ayn/kernel:all_qcom_dts"],
@@ -57,6 +63,7 @@ filegroup(
         "qcs8550-ayntec-odin2mini.dtbo",
         "qcs8550-ayntec-odin2portal.dtbo",
         "qcs8550-ayntec-thor.dtbo",
+        "qcs8550-retroidpocket-nova.dtbo",
         "qcs8550-retroidpocket-rp6.dtbo",
     ],
 )
@@ -86,6 +93,12 @@ dtb_composite(
 )
 
 dtb_composite(
+    name = "qcs8550-retroidpocket-nova.dtb",
+    base = "qcs8550-ayntec-common.dtb",
+    overlays = ["qcs8550-retroidpocket-nova.dtbo"],
+)
+
+dtb_composite(
     name = "qcs8550-retroidpocket-rp6.dtb",
     base = "qcs8550-ayntec-common.dtb",
     overlays = ["qcs8550-retroidpocket-rp6.dtbo"],
@@ -98,6 +111,7 @@ filegroup(
         "qcs8550-ayntec-odin2mini.dtb",
         "qcs8550-ayntec-odin2portal.dtb",
         "qcs8550-ayntec-thor.dtb",
+        "qcs8550-retroidpocket-nova.dtb",
         "qcs8550-retroidpocket-rp6.dtb",
     ],
 )
