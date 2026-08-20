@@ -11,3 +11,15 @@
 &android_firmware {
 	hardware = "thor";
 };
+
+&i2c4 {
+	touchscreen@38 {
+		label = "ft5426";
+	};
+};
+
+&i2c_hub_3 {
+	touchscreen@38 {
+		label = "ft5452";
+	};
+};
